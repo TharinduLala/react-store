@@ -7,8 +7,8 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import Link from '@mui/material/Link';
 import React from "react";
-import Grid from "@mui/material/Grid";
 
 function DashBoard(props) {
   return (
@@ -42,18 +42,25 @@ function DashBoard(props) {
                     justifyContent: "flex-start",
                   }}
                 >
-                  <Button size="small" color="inherit">
-                    DashBoard
-                  </Button>
-                  <Button size="small" color="inherit">
-                    Products
-                  </Button>
-                  <Button size="small" color="inherit">
-                    Cart
-                  </Button>
+                  <Link href="/dashboard" underline="none">
+                    <Button size="small" variant="contained">
+                      DashBoard
+                    </Button>
+                  </Link>
+                  <Link href="/products" underline="none">
+                    <Button size="small" variant="contained"  >
+                      Products
+                    </Button>
+                  </Link>
+                  <Link href="/cart" underline="none">
+                    <Button size="small" variant="contained"  >
+                      Cart
+                    </Button>
+                  </Link>
                 </div>
-
-                <Button color="inherit">Logout</Button>
+                <Link href="/" underline="none">
+                  <Button variant="contained" >Logout</Button>
+                </Link>
               </div>
             </Toolbar>
           </AppBar>

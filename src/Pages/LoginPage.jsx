@@ -8,6 +8,7 @@ import {
   Paper,
 } from "@mui/material";
 import React, { useState } from "react";
+import Link from "@mui/material/Link";
 
 function LoginPage(props) {
   const [userNameHelperText, setUsernameHelperText] = useState("");
@@ -15,11 +16,13 @@ function LoginPage(props) {
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [showPassword, setShowPassword] = useState("password");
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const loginAction = () => {
-    if (usernameError) {
-      setUsernameHelperText("Invalid Username");
-      /*  setPasswordHelperText('Invalid Password'); */
+    if (!(userName === "" || password === "")) {
+    } else {
+      alert("fill fields");
     }
   };
   const showHidePassword = (e) => {
@@ -34,7 +37,7 @@ function LoginPage(props) {
   return (
     <Container className="container">
       <div className="loginContainer">
-        <Typography variant="h4"gutterBottom>
+        <Typography variant="h4" gutterBottom>
           Login
         </Typography>
         <TextField
@@ -48,6 +51,9 @@ function LoginPage(props) {
           size="small"
           error={usernameError}
           helperText={userNameHelperText}
+          onChange={(e) => {
+            setUserName(e.target.value);
+          }}
         />
         <TextField
           required
@@ -60,14 +66,20 @@ function LoginPage(props) {
           size="small"
           error={passwordError}
           helperText={passwordHelperText}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
         />
         <FormControlLabel
           control={<Checkbox onChange={showHidePassword} />}
           label="show password"
         />
-        <Button id="loginButton" variant="contained" onClick={loginAction}>
-          Login
-        </Button>
+
+        <Link href="/dashboard" underline="none">
+          <Button id="loginButton" variant="contained" onClick={loginAction}>
+            Login
+          </Button>
+        </Link>
       </div>
     </Container>
   );
